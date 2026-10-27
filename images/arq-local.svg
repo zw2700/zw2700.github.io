@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" role="img" aria-labelledby="title desc">
+  <title id="title">ARQ local learning</title>
+  <desc id="desc">State and action inputs feed two connected layers. Each layer has its own hidden vector, scalar Q output, and local TD update loop.</desc>
+  <defs>
+    <marker id="forward-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#27445f"/>
+    </marker>
+    <marker id="local-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#e85d4a"/>
+    </marker>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f5f9fd"/>
+      <stop offset="1" stop-color="#fff9ec"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="10" y="10" width="580" height="580" rx="46" fill="url(#panel)"/>
+  <text x="300" y="72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="52" font-weight="700" letter-spacing="3" fill="#173955">ARQ</text>
+
+  <!-- State and action inputs -->
+  <rect x="34" y="148" width="82" height="82" rx="16" fill="#dcecff" stroke="#2878b5" stroke-width="7"/>
+  <g fill="#2878b5">
+    <rect x="49" y="163" width="14" height="14" rx="3"/>
+    <rect x="69" y="163" width="14" height="14" rx="3" opacity=".45"/>
+    <rect x="89" y="163" width="14" height="14" rx="3" opacity=".7"/>
+    <rect x="49" y="183" width="14" height="14" rx="3" opacity=".45"/>
+    <rect x="69" y="183" width="14" height="14" rx="3" opacity=".8"/>
+    <rect x="89" y="183" width="14" height="14" rx="3" opacity=".35"/>
+    <rect x="49" y="203" width="14" height="14" rx="3" opacity=".65"/>
+    <rect x="69" y="203" width="14" height="14" rx="3" opacity=".35"/>
+    <rect x="89" y="203" width="14" height="14" rx="3"/>
+  </g>
+  <circle cx="75" cy="292" r="41" fill="#fff0ec" stroke="#e85d4a" stroke-width="7"/>
+  <path d="M54 292H92M79 277L94 292L79 307" fill="none" stroke="#e85d4a" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Shared action-conditioned input rail -->
+  <path d="M116 189H154V424" fill="none" stroke="#27445f" stroke-width="8" stroke-linecap="round"/>
+  <path d="M116 292H154" fill="none" stroke="#e85d4a" stroke-width="8" stroke-linecap="round"/>
+  <path d="M154 189H204M154 424H204" fill="none" stroke="#27445f" stroke-width="8" stroke-linecap="round" marker-end="url(#forward-arrow)"/>
+  <circle cx="154" cy="189" r="8" fill="#27445f"/>
+  <circle cx="154" cy="424" r="8" fill="#27445f"/>
+
+  <!-- Local layer one -->
+  <rect x="216" y="116" width="252" height="154" rx="28" fill="#fff1c9" stroke="#d7ad4c" stroke-width="7"/>
+  <path d="M272 221A42 42 0 1 1 299 158" fill="none" stroke="#e85d4a" stroke-width="9" stroke-linecap="round" marker-end="url(#local-arrow)"/>
+  <text x="268" y="199" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#b63b2e">TD</text>
+  <g fill="#3f86c5">
+    <rect x="330" y="182" width="17" height="43" rx="5"/>
+    <rect x="355" y="159" width="17" height="66" rx="5" opacity=".85"/>
+    <rect x="380" y="190" width="17" height="35" rx="5" opacity=".7"/>
+    <rect x="405" y="145" width="17" height="80" rx="5" opacity=".95"/>
+  </g>
+  <path d="M427 193H482" fill="none" stroke="#27445f" stroke-width="7" marker-end="url(#forward-arrow)"/>
+  <circle cx="526" cy="193" r="39" fill="#60cfad" stroke="#16755e" stroke-width="7"/>
+  <text x="526" y="205" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="700" fill="#104d40">Q</text>
+
+  <!-- Forward activations only -->
+  <path d="M342 271V337" fill="none" stroke="#27445f" stroke-width="8" stroke-linecap="round" marker-end="url(#forward-arrow)"/>
+
+  <!-- Local layer two -->
+  <rect x="216" y="351" width="252" height="154" rx="28" fill="#fff1c9" stroke="#d7ad4c" stroke-width="7"/>
+  <path d="M272 456A42 42 0 1 1 299 393" fill="none" stroke="#e85d4a" stroke-width="9" stroke-linecap="round" marker-end="url(#local-arrow)"/>
+  <text x="268" y="434" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#b63b2e">TD</text>
+  <g fill="#3f86c5">
+    <rect x="330" y="405" width="17" height="55" rx="5" opacity=".8"/>
+    <rect x="355" y="390" width="17" height="70" rx="5"/>
+    <rect x="380" y="419" width="17" height="41" rx="5" opacity=".65"/>
+    <rect x="405" y="400" width="17" height="60" rx="5" opacity=".9"/>
+  </g>
+  <path d="M427 428H482" fill="none" stroke="#27445f" stroke-width="7" marker-end="url(#forward-arrow)"/>
+  <circle cx="526" cy="428" r="39" fill="#60cfad" stroke="#16755e" stroke-width="7"/>
+  <text x="526" y="440" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="700" fill="#104d40">Q</text>
+
+  <text x="342" y="558" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="25" font-weight="700" letter-spacing="2" fill="#6b7d8d">LOCAL AT EVERY LAYER</text>
+</svg>
